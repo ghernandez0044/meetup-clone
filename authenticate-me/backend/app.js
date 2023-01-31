@@ -17,7 +17,6 @@ const routes = require('./routes')
 const { environment } = require('./config')
 const isProduction = environment === 'production'
 
-
 // Initialize the Express application
 const app = express()
 
