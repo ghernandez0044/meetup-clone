@@ -66,6 +66,17 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+
+      // One To Many relationship between User and Groups
+      User.hasMany(
+        models.Group,
+        { foreignKey: 'organizerId', onDelete: 'CASCADE', hooks: true }
+      )
+
+
+
+
+
     }
   }
   User.init({
