@@ -13,9 +13,15 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
 
       // One To Many relationship between User and Memberships
-      Membership,this.belongsTo(
+      Membership.belongsTo(
         models.User,
         { foreignKey: 'userId' }
+      )
+
+      // One To Many relationship between Group and Memberships
+      Membership.belongsTo(
+        models.Group,
+        { foreignKey: 'groupId' }
       )
 
 
