@@ -11,6 +11,19 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+
+      // One To Many relationship between User and Memberships
+      Membership,this.belongsTo(
+        models.User,
+        { foreignKey: 'userId' }
+      )
+
+
+
+
+
+
+
     }
   }
   Membership.init({
