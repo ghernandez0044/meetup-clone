@@ -91,6 +91,11 @@ module.exports = (sequelize, DataTypes) => {
         { through: models.Attendance, foreignKey: 'userId', otherKey: 'eventId' }
       )
 
+      // Many To Many relationship between Users and Groups
+      User.belongsToMany(
+        models.Group,
+        { through: models.Membership, foreignKey: 'userId', otherKey: 'groupId' }
+      )
 
     }
   }

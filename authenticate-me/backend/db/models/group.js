@@ -49,6 +49,12 @@ module.exports = (sequelize, DataTypes) => {
         { foreignKey: 'groupId', onDelete: 'CASCADE', hooks: true }
       )
 
+      // Many To Many relationship between Users and Groups
+      Group.belongsToMany(
+        models.User,
+        { through: models.Membership, foreignKey: 'groupId', otherKey: 'userId' }
+      )
+
 
 
     }
