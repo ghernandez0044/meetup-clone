@@ -19,6 +19,12 @@ module.exports = (sequelize, DataTypes) => {
         { foreignKey: 'organizerId' }
       )
 
+      // One To Many relationship between Group and GroupImages
+      Group.hasMany(
+        models.GroupImage,
+        { foreignKey: 'groupId', onDelete: 'CASCADE', hooks: true }
+      )
+
 
 
 
