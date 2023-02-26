@@ -11,6 +11,18 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+
+
+      // One To Many relationship between User and Attendances
+      Attendance.belongsTo(
+        models.User,
+        { foreignKey: 'userId' }
+      )
+
+
+
+
+
     }
   }
   Attendance.init({

@@ -73,6 +73,11 @@ module.exports = (sequelize, DataTypes) => {
         { foreignKey: 'organizerId', onDelete: 'CASCADE', hooks: true }
       )
 
+      // One To Many relationship between User and Attendances
+      User.hasMany(
+        models.Attendance,
+        { foreignKey: 'userId', onDelete: 'CASCADE', hooks: true }
+      )
 
 
 
