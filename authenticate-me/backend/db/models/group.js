@@ -25,6 +25,11 @@ module.exports = (sequelize, DataTypes) => {
         { foreignKey: 'groupId', onDelete: 'CASCADE', hooks: true }
       )
 
+      // One To Many relationship between Group and Venues
+      Group.hasMany(
+        models.Venue,
+        { foreignKey: 'groupId', onDelete: 'CASCADE', hooks: true }
+      )
 
 
 
