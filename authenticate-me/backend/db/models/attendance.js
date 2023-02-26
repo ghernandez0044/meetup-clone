@@ -19,7 +19,11 @@ module.exports = (sequelize, DataTypes) => {
         { foreignKey: 'userId' }
       )
 
-
+      // One To Many relationship between Event and Attendances
+      Attendance.belongsTo(
+        models.Event,
+        { foreignKey: 'eventId' }
+      )
 
 
 
