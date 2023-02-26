@@ -24,6 +24,12 @@ module.exports = (sequelize, DataTypes) => {
         { foreignKey: 'venueId' }
       )
 
+      // One To Many relationship between Event and EventImages
+      Event.hasMany(
+        models.EventImage,
+        { foreignKey: 'eventId', onDelete: 'CASCADE', hooks: true }
+      )
+
 
 
 
