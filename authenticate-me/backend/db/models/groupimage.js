@@ -18,6 +18,11 @@ module.exports = (sequelize, DataTypes) => {
         { foreignKey: 'groupId' }
       )
 
+      // One To Many relationship between Group and GroupImages
+      GroupImage.belongsTo(
+        models.Group,
+        { foreignKey: 'groupId' }
+      )
 
 
 
