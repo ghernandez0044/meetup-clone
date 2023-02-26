@@ -85,6 +85,11 @@ module.exports = (sequelize, DataTypes) => {
         { foreignKey: 'userId', onDelete: 'CASCADE', hooks: true }
       )
 
+      // Many To Many relationship between Users and Events
+      User.belongsToMany(
+        models.Event,
+        { through: models.Attendance, foreignKey: 'userId', otherKey: 'eventId' }
+      )
 
 
     }
