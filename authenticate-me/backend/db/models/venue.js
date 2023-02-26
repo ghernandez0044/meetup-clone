@@ -14,13 +14,43 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   Venue.init({
-    id: DataTypes.INTEGER,
-    groupId: DataTypes.INTEGER,
-    address: DataTypes.STRING,
-    city: DataTypes.STRING,
-    state: DataTypes.STRING,
-    lat: DataTypes.FLOAT,
-    lng: DataTypes.FLOAT
+    id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      autoIncrement: true,
+      primaryKey: true
+    },
+    groupId: {
+      type: DataTypes.INTEGER
+    },
+    address: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    city: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    state: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    lat: {
+      type: DataTypes.FLOAT,
+      allowNull: false,
+      validate: {
+        min: -90,
+        max: 90
+      }
+    },
+    lng: {
+      type: DataTypes.FLOAT,
+      allowNull: false,
+      validate: {
+        min: -180,
+        max: 180
+      }
+    }
   }, {
     sequelize,
     modelName: 'Venue',
